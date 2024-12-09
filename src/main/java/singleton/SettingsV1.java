@@ -1,16 +1,16 @@
 package main.java.singleton;
 
-public class Settings {
+public class SettingsV1 {
 
-    private static Settings instance;
+    private static SettingsV1 instance;
 
-    private Settings() {
+    private SettingsV1() {
     }
 
     // 멀티 쓰레드 환경에서의 불안전한 인스턴스 생성 코드
-    public static Settings getInstance() {
+    public static synchronized SettingsV1 getInstance() {
         if (instance == null) {
-            instance = new Settings();
+            instance = new SettingsV1();
         }
 
         return instance;
